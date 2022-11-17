@@ -9,10 +9,10 @@ public class GameArea extends JPanel {
         private int gridRows;
         private int gridColumns;
         private int gridCellSize;
-        
         private Color[][] background;
-        private TetrisBlock block ;
+        TetrisBlock block ;
         private TetrisBlock[] blocks ;
+        private SwapBlocks sc = new SwapBlocks();
         
         public GameArea(JPanel placeholder , int columns)
     {
@@ -63,9 +63,11 @@ public class GameArea extends JPanel {
         }
 //      Spawing a new random Block
         public void spawnBlock(){
-        Random r = new Random();
-            block = blocks[r.nextInt(blocks.length) ];
-            block.spawn(gridColumns);
+        TetrisBlock tc = sc.returnblock();
+        block = tc;
+        sc.insertBlock();
+        block.spawn(gridColumns);
+
         }
         
         

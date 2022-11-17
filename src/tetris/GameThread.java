@@ -12,6 +12,7 @@ public class GameThread extends Thread{
     
     private GameArea ga;
     private GameForm gf;
+    private SwapArea sa;
     private int score;
     private int level = 1;
     private int scorePerLevel = 1;
@@ -21,8 +22,9 @@ public class GameThread extends Thread{
     
     
     
-    public GameThread(GameArea ga , GameForm gf){
+    public GameThread(GameArea ga ,SwapArea sa, GameForm gf){
         this.ga=ga;
+        this.sa=sa;
         this.gf=gf;
         gf.updateScore(score);
         gf.updatelevel(level);
@@ -32,7 +34,7 @@ public class GameThread extends Thread{
     @Override
     public void run()
     {
-//      This is our Main Game loop
+//      This is our Main Game loop 
         while(true){
             ga.spawnBlock ();
             //we make the block move down, wait , then check if we are Bounded it stops else it keep moving down
