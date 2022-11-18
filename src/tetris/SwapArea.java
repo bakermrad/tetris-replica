@@ -11,30 +11,61 @@ import tetrisblocks.*;
 
 public class SwapArea extends JPanel {
     
-    
-    public SwapArea(JPanel placeholder)
+    SwapBlocks sc;
+    TetrisBlock block, block2;
+    public SwapArea(JPanel placeholder,SwapBlocks sc)
     {
+        this.sc =sc;
+        placeholder.setVisible(false);
         this.setBounds(placeholder.getBounds());
         this.setBackground(placeholder.getBackground());
         this.setBorder(placeholder.getBorder());
     
     }
-    //      Painting our Srid System anf The Blocks
         @Override
         protected void paintComponent(Graphics g)
         {
-           super.paintComponent(g);
-            g.drawString("Hello",40,40);  
-            setBackground(Color.black);  
-            g.fillRect(130, 30,100, 80);  
-            g.drawOval(30,130,50, 60);  
-            setForeground(Color.RED);  
-            g.fillOval(130,130,50, 60);  
-            g.drawArc(30, 200, 40,50,90,60);  
-            g.fillArc(30, 130, 40,50,180,40);  
-           
+           super.paintComponent(g); 
+            drawblock(g);
+            if(block!=null)
+            repaint();
 
-
+        }
+        
+        private void drawblock(Graphics g){
+            
+            int gridCellSize = this.getBounds().width/10;
+            this.block = sc.returnblock();
+            sc.insertBlock(block);
+            this.block2 = sc.returnblock();
+            sc.insertBlock(block2);
+            
+            
+            int h = block.getHeight();
+            int w =  block.getWidth();
+            Color c = block.getColor();
+            int [][] shape = block.getShape();
+            for (int row = 0; row < h; row++) {
+                for (int col = 0; col <w; col++) {
+                   //Check if we have to draw the cell
+                    if (shape[row][col] == 1) 
+                    {
+                        g.fillRect(col*gridCellSize+20, row*gridCellSize+20, gridCellSize, gridCellSize);
+                    }
+                }
+            }
+            int h2 = block2.getHeight();
+            int w2 =  block2.getWidth();
+            int [][] shape2 = block2.getShape();
+            for (int row = 0; row < h2; row++) {
+                for (int col = 0; col <w2; col++) {
+                   //Check if we have to draw the cell
+                    if (shape2[row][col] == 1) 
+                    {
+                        g.fillRect(col*gridCellSize+20, row*gridCellSize+150, gridCellSize, gridCellSize);
+                    }
+                }
+            }
         }
 
     

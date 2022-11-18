@@ -12,11 +12,11 @@ public class GameArea extends JPanel {
         private Color[][] background;
         TetrisBlock block ;
         private TetrisBlock[] blocks ;
-        private SwapBlocks sc = new SwapBlocks();
+        private SwapBlocks sc ;
         
-        public GameArea(JPanel placeholder , int columns)
+        public GameArea(JPanel placeholder , int columns,SwapBlocks sc)
     {
-       
+        this.sc =sc;
 //        Size and looks
 
         //we are setting the size accourding to the place holder we created in the GameForm and using its getBounds() to get the size.
@@ -61,8 +61,14 @@ public class GameArea extends JPanel {
             }
 
         }
+        
+        public void swapBlock(){
+         TetrisBlock tc = sc.returnblock();
+         sc.insertBlock(tc);   
+        }
 //      Spawing a new random Block
         public void spawnBlock(){
+            
         TetrisBlock tc = sc.returnblock();
         block = tc;
         sc.insertBlock();
@@ -80,6 +86,7 @@ public class GameArea extends JPanel {
         }
         private void drawBlock(Graphics g)
         {
+            
             int h = block.getHeight();
             int w =  block.getWidth();
             Color c = block.getColor();

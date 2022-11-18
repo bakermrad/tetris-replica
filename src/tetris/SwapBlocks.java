@@ -20,20 +20,29 @@ public class SwapBlocks{
         };
     
         Queue<TetrisBlock> queue = new LinkedList<TetrisBlock>();
+        
 
     
     
     public SwapBlocks(){
         Random r = new Random();
         TetrisBlock block = blocks[r.nextInt(blocks.length) ];
+        Random w = new Random();
+        TetrisBlock block2 = blocks[w.nextInt(blocks.length) ];
         queue.add(block);
-
+        queue.add(block2);
     }
     public void insertBlock(){
         Random r = new Random();
         TetrisBlock block = blocks[r.nextInt(blocks.length) ];
         queue.add(block);
+        System.out.println(queue.size());
     }
+    
+    public void insertBlock(TetrisBlock b){
+        queue.add(b);
+    }
+    
     
     public TetrisBlock returnblock(){
     return queue.remove();
