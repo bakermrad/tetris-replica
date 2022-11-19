@@ -1,5 +1,6 @@
 package tetris;
 import java.awt.Color;
+import static java.awt.Color.blue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -43,7 +44,7 @@ public class SwapArea extends JPanel {
             
             int h = block.getHeight();
             int w =  block.getWidth();
-            Color c = block.getColor();
+            Color c = blue;
             int [][] shape = block.getShape();
             for (int row = 0; row < h; row++) {
                 for (int col = 0; col <w; col++) {

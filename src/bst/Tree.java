@@ -43,6 +43,7 @@ public class Tree {
       insertNode(5,new ZShape());
       insertNode(1,new SShape());
       insertNode(6,new LShape());
+      insertNode(7,new genZShape());
       insertNode(2,new IShape());
       insertNode(4,new OShape());
       insertNode(0,new JShape());
@@ -52,7 +53,7 @@ public class Tree {
   }
   public TetrisBlock getRandomBlock(){
       Random block = new Random();
-      int i = block.nextInt(7);
+      int i = block.nextInt(8);
       Node found = searchNode(i);
       if(found!=null){
           return found.data;
