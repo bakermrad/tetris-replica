@@ -39,13 +39,16 @@ public class Tree {
     }
   }
   public void insertAll(){
-      insertNode(5,new ZShape());
       insertNode(3,new TShape());
+      insertNode(5,new ZShape());
+      insertNode(1,new SShape());
       insertNode(6,new LShape());
       insertNode(2,new IShape());
       insertNode(4,new OShape());
-      insertNode(1,new SShape());
       insertNode(0,new JShape());
+      
+      //inserting shapes in a specific order to make
+      // a balanced binary search tree (optimal)
   }
   public TetrisBlock getRandomBlock(){
       Random block = new Random();
@@ -55,5 +58,6 @@ public class Tree {
           return found.data;
       }
       return new TShape();//frequency test for search function returning null
+      //TShape spawns seem normal, so the random is working properly
   }
 }

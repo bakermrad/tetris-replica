@@ -5,9 +5,20 @@
         <group>
             <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/bst/Node.java</file>
             <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/bst/Tree.java</file>
-            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/SwapBlocks.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/AudioPlayer.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/TetrisBlock.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/StartupForm.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetrisblocks/TShape.java</file>
             <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/Tetris.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetrisblocks/OShape.java</file>
             <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/LeaderboardForm.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/GameForm.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetrisblocks/JShape.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetrisblocks/ZShape.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetrisblocks/IShape.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/GameArea.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/SwapBlocks.java</file>
+            <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetrisblocks/SShape.java</file>
             <file>file:/C:/Users/Mohamad%20Tout/Desktop/Uni/Data%20Project/tetris-replica/src/tetris/SwapArea.java</file>
         </group>
     </open-files>

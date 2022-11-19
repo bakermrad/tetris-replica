@@ -25,8 +25,6 @@ public class SwapBlocks{
         queue.add(block2);
     }
     public void insertBlock(){
-        //blocks = new Tree();
-        //blocks.insertAll();
         TetrisBlock block = blocks.getRandomBlock();
         queue.add(block);
         System.out.println(queue.size());
