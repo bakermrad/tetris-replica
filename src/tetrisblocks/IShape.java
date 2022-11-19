@@ -1,6 +1,7 @@
 
 package tetrisblocks;
 
+import static java.awt.Color.orange;
 import tetris.TetrisBlock;
 
 /**
@@ -12,7 +13,9 @@ public class IShape  extends TetrisBlock {
     public IShape()
     {
     super( new int [][]{{1,1,1,1}} );
+    super.color = orange;
     }
+
     @Override
      public void rotate()
     {

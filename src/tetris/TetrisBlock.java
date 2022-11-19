@@ -12,7 +12,7 @@ public class TetrisBlock {
 //    every block well have a 2d array as it's shape
     private int[][] shape;
 //    Then we are giving it a color using the Color class
-    private Color color;
+    public Color color;
     private int x,y;
     private int currentRotation;
     private int[][][] shapes;
@@ -67,12 +67,13 @@ public class TetrisBlock {
         y= -getHeight();
         //making the block spawn in a random x position
         x= r.nextInt(gridWidth - getWidth());
-        color = availableColors[ r.nextInt(shapes.length)];
+//        color = availableColors[ r.nextInt(shapes.length)];
     }
      public int[][] getShape(){return shape;}
+     
      public Color getColor()
      {
-             return color;
+        return color;
      } 
     public void moveDown()
     {
