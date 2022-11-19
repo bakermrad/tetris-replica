@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.util.Random;
 import javax.swing.JPanel;
 import tetrisblocks.*;
+import bst.Tree;
 public class GameArea extends JPanel {
     
         private int gridRows;
@@ -11,7 +12,7 @@ public class GameArea extends JPanel {
         private int gridCellSize;
         private Color[][] background;
         TetrisBlock block ;
-        private TetrisBlock[] blocks ;
+        private Tree blocks ;
         private SwapBlocks sc ;
         
         public GameArea(JPanel placeholder , int columns,SwapBlocks sc)
@@ -34,15 +35,8 @@ public class GameArea extends JPanel {
         gridCellSize = this.getBounds().width/ gridColumns;
         gridRows = this.getBounds().height  / gridCellSize;
         
-        blocks = new TetrisBlock[]{new IShape(),
-        new JShape(),
-        new OShape(),
-        new SShape(),
-        new ZShape(),
-        new LShape(),
-        new TShape()
-        
-        };
+        blocks = new Tree();
+        blocks.insertAll();
     }
         
 //      Painting our Srid System anf The Blocks

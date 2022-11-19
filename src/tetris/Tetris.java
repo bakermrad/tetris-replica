@@ -46,6 +46,7 @@ public class Tetris {
         // TODO code application logic here
           java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+            
             gf = new GameForm();
             sf = new StartupForm();
             lf = new LeaderboardForm();

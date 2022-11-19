@@ -2,22 +2,14 @@ package tetris;
 import java.util.*;
 import javax.swing.*;
 import tetrisblocks.*;
-
+import bst.Tree;
 
 /**
  *
  * @author baker
  */
 public class SwapBlocks{
-        private TetrisBlock[] blocks = new TetrisBlock[]{new IShape(),
-        new JShape(),
-        new OShape(),
-        new SShape(),
-        new ZShape(),
-        new LShape(),
-        new TShape()
-        
-        };
+        private Tree blocks;
     
         Queue<TetrisBlock> queue = new LinkedList<TetrisBlock>();
         
@@ -25,16 +17,17 @@ public class SwapBlocks{
     
     
     public SwapBlocks(){
-        Random r = new Random();
-        TetrisBlock block = blocks[r.nextInt(blocks.length) ];
-        Random w = new Random();
-        TetrisBlock block2 = blocks[w.nextInt(blocks.length) ];
+        blocks = new Tree();
+        blocks.insertAll();
+        TetrisBlock block = blocks.getRandomBlock();
+        TetrisBlock block2 = blocks.getRandomBlock();
         queue.add(block);
         queue.add(block2);
     }
     public void insertBlock(){
-        Random r = new Random();
-        TetrisBlock block = blocks[r.nextInt(blocks.length) ];
+        //blocks = new Tree();
+        //blocks.insertAll();
+        TetrisBlock block = blocks.getRandomBlock();
         queue.add(block);
         System.out.println(queue.size());
     }

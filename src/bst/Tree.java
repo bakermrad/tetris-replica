@@ -1,18 +1,23 @@
 package bst;
+import tetris.TetrisBlock;
+import tetrisblocks.*;
+import java.util.Random;
 public class Tree {
   protected Node root;
-  public void insertNode(int key, String name) {
-    root = insertNode(key, name, root);
+  public Tree(){
+      root=null;
   }
-  
-  Node insertNode(int key, String name, Node node) {
+  public void insertNode(int key, TetrisBlock a) {
+    root = insertNode(key, a, root);
+  }
+  Node insertNode(int key, TetrisBlock a, Node node) {
     if (node == null) {
-      node = new Node(key,name);
+      node = new Node(key,a);
     }
-    else if (key <= node.data) {
-      node.left = insertNode(key, name, node.left);
-    } else if (key > node.data) {
-      node.right = insertNode(key, name, node.right);
+    else if (key <= node.index) {
+      node.left = insertNode(key, a, node.left);
+    } else if (key > node.index) {
+      node.right = insertNode(key, a, node.right);
     }
     return node;
   }
@@ -25,66 +30,30 @@ public class Tree {
       return null;
     }
 
-    if (key == node.data) {
+    if (key == node.index) {
       return node;
-    } else if (key < node.data) {
+    } else if (key < node.index) {
       return searchNode(key, node.left);
     } else {
       return searchNode(key, node.right);
     }
   }
-  public void deleteNode(int key) {
-    root = deleteNode(key, root);
+  public void insertAll(){
+      insertNode(5,new ZShape());
+      insertNode(3,new TShape());
+      insertNode(6,new LShape());
+      insertNode(2,new IShape());
+      insertNode(4,new OShape());
+      insertNode(1,new SShape());
+      insertNode(0,new JShape());
   }
-
-  Node deleteNode(int key, Node node) {
-    // No node at current position --> go up the recursion
-    if (node == null) {
-      return null;
-    }
-
-    // Traverse the tree to the left or right depending on the key
-    if (key < node.data) {
-      node.left = deleteNode(key, node.left);
-    } else if (key > node.data) {
-      node.right = deleteNode(key, node.right);
-    }
-
-    // At this point, "node" is the node to be deleted
-
-    // Node has no children --> just delete it
-    else if (node.left == null && node.right == null) {
-      node = null;
-    }
-
-    // Node has only one child --> replace node by its single child
-    else if (node.left == null) {
-      node = node.right;
-    } else if (node.right == null) {
-      node = node.left;
-    }
-
-    // Node has two children
-    else {
-      deleteNodeWithTwoChildren(node);
-    }
-
-    return node;
-  }
-   private Node findMinimum(Node node) {
-    while (node.left != null) {
-      node = node.left;
-    }
-    return node;
-  }
-  private void deleteNodeWithTwoChildren(Node node) {
-    // Find minimum node of right subtree ("inorder successor" of current node)
-    Node inOrderSuccessor = findMinimum(node.right);
-
-    // Copy inorder successor's data to current node
-    node.data = inOrderSuccessor.data;
-
-    // Delete inorder successor recursively
-    node.right = deleteNode(inOrderSuccessor.data, node.right);
+  public TetrisBlock getRandomBlock(){
+      Random block = new Random();
+      int i = block.nextInt(7);
+      Node found = searchNode(i);
+      if(found!=null){
+          return found.data;
+      }
+      return new TShape();//frequency test for search function returning null
   }
 }

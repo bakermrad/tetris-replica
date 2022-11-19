@@ -1,12 +1,15 @@
 package bst;
-public class Node {
-    int data;
-    String name;
+
+import tetris.TetrisBlock;
+
+public class Node{
+    int index;
+    TetrisBlock data;
     Node left;
     Node right;
-    public Node(int score,String name){
-        data=score;
-        this.name=name;
+    public Node(int i,TetrisBlock a){
+        data=a;
+        index = i;
     }
 }
 
