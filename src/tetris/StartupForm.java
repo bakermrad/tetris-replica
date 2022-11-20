@@ -57,7 +57,7 @@ public class StartupForm extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 0));
-        jLabel1.setText("Tetris");
+        jLabel1.setText("bakeris");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,9 +68,9 @@ public class StartupForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnQuit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLeaderboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStart, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                    .addComponent(btnStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

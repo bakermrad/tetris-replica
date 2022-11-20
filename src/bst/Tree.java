@@ -31,7 +31,7 @@ public class Tree {
 
   private NodeT searchNode(int key, NodeT node) {
     if (node == null) {
-      return new NodeT(3,new TShape()); //frequency test for shuffle not 
+      return new NodeT(3,new TShape()); //frequency test for shuffle not working
     }
     if (key == node.index) {
       return node;
@@ -54,11 +54,10 @@ public class Tree {
       // a balanced binary search tree (optimal)
   }
   public TetrisBlock getRandomBlock(){
-      if(randomPool.isEmpty()){
-        randomPool.pushAll();
-      }
       randomPool.shuffle();
-      NodeT found = searchNode(randomPool.pop());
+      int l = randomPool.pop();
+      NodeT found = searchNode(l);
+      randomPool.push(l);
       return found.data;
     }
 }
