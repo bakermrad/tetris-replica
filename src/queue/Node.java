@@ -10,8 +10,7 @@ public class Node {
     TetrisBlock data;
     Node next;
     public Node(TetrisBlock a){
-    this.data = a;
+        this.data = a;
+        next = null;
     }
-
-    
 }

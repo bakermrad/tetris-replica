@@ -14,8 +14,9 @@ public class Stack {
         return size;
     }
     public void push(int a){
+        NodeS b = new NodeS(a);
         if(isEmpty()){
-            top = new NodeS(a);
+            top = b;
             size++;
             return;
         }
@@ -23,13 +24,13 @@ public class Stack {
         while(iterate.next!=null){
             iterate = iterate.next;
         }
-        iterate.next = new NodeS(a);
+        iterate.next = b;
         size++;
     }
     public int pop(){
         if(!isEmpty()){
             NodeS l = top;
-            top = l.next;
+            top = top.next;
             size--;
             return l.data;
         }
@@ -44,18 +45,15 @@ public class Stack {
         //a method that will somewhat randomize the order of numbers in the stack
         if(!isEmpty()){
             Stack recover = new Stack();
-            int b = getSize();
             Random rng = new Random();
-            for(int i = 0; i < b; i++){
-                int hold = pop();
-                int r = rng.nextInt(b-i);
-                for(int j = 0; j < r; j++){
-                    recover.push(pop());
-                }
-                push(hold);
-                for(int j = 0; j < r; j++){
-                    push(recover.pop());
-                }
+            int hold = pop();
+            int r = rng.nextInt(1,6);
+            for(int j = 0; j < r; j++){
+                recover.push(pop());
+            }
+            push(hold);
+            for(int j = 0; j < r; j++){
+                push(recover.pop());
             }
         }
     }

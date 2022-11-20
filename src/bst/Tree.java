@@ -8,7 +8,7 @@ public class Tree {
   public Tree(){
       root=null;
       randomPool=new Stack();
-      randomPool.pushAll();
+      insertAll();
       //randomPool.shuffle();
   }
   public void insertNode(int key, TetrisBlock a) {
@@ -31,9 +31,8 @@ public class Tree {
 
   private NodeT searchNode(int key, NodeT node) {
     if (node == null) {
-      return null;
+      return new NodeT(3,new TShape()); //frequency test for shuffle not 
     }
-
     if (key == node.index) {
       return node;
     } else if (key < node.index) {
@@ -42,7 +41,7 @@ public class Tree {
       return searchNode(key, node.right);
     }
   }
-  public void insertAll(){
+  public final void insertAll(){
       insertNode(3,new TShape());
       insertNode(5,new ZShape());
       insertNode(1,new SShape());
@@ -50,20 +49,16 @@ public class Tree {
       insertNode(2,new IShape());
       insertNode(4,new OShape());
       insertNode(0,new JShape());
-      
+      randomPool.pushAll();
       //inserting shapes in a specific order to make
       // a balanced binary search tree (optimal)
   }
   public TetrisBlock getRandomBlock(){
       if(randomPool.isEmpty()){
-          randomPool.pushAll();
+        randomPool.pushAll();
       }
       randomPool.shuffle();
       NodeT found = searchNode(randomPool.pop());
-      if(found!=null){
-          return found.data;
-      }
-      return new TShape();//frequency test for search function returning null
-      //TShape spawns seem normal, so the random is working properly
-  }
+      return found.data;
+    }
 }

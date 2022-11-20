@@ -13,39 +13,39 @@ import tetris.TetrisBlock;
 public class queue {
     Node top,bottom;
     public queue(){
-    top = null;
+        top = null;
     }
     
        
     public boolean isEmpty(){
-    return top ==null;
+        return top==null;
     }
     
     public void insert(TetrisBlock t){
         Node n = new Node(t);
-    if(isEmpty()){
-        top=n;
-    }
-    else{
-        Node temp = top;
-        while(temp.next!= null){
-        temp = temp.next;
+        if(isEmpty()){
+            top=n;
+        }else{
+            Node temp = top;
+            while(temp.next!= null){
+                temp = temp.next;
+                n.next = top;
+                top = n;
+            }
+            temp.next = n;
         }
-        temp.next = n;
-    }
     }
     
     public TetrisBlock remove(){
-    if(!isEmpty()){
-        
-        Node temp = top;
-        top = top.next;
-        return temp.data;
-    }
-    return null;
+        if(!isEmpty()){
+            Node temp = top;
+            top = top.next;
+            return temp.data;
+        }
+        return null;
     }
     public TetrisBlock peek(){
-         return top.data;
+        return top.data;
     }
     
     

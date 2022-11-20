@@ -10,18 +10,20 @@ import queue.*;
  * @author baker
  */
 public class SwapBlocks{
-        private Tree blocks;
+        private Tree blocks = new Tree();
         queue blocksqueue = new queue();
-
     
     
     public SwapBlocks(){
-        blocks = new Tree();
-        blocks.insertAll();
         TetrisBlock block = blocks.getRandomBlock();
         TetrisBlock block2 = blocks.getRandomBlock();
         blocksqueue.insert(block);
         blocksqueue.insert(block2);
+    }
+    public TetrisBlock insertBlockSwap(){
+        TetrisBlock block = blocks.getRandomBlock();
+        blocksqueue.insert(block);
+        return block;
     }
     public void insertBlock(){
         TetrisBlock block = blocks.getRandomBlock();
@@ -34,7 +36,7 @@ public class SwapBlocks{
     
     
     public TetrisBlock returnblock(){
-    return blocksqueue.remove();
+        return blocksqueue.remove();
     }
     
     
