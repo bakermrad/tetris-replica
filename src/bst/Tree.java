@@ -1,18 +1,22 @@
 package bst;
 import tetris.TetrisBlock;
+import stack.Stack;
 import tetrisblocks.*;
-import java.util.Random;
 public class Tree {
-  protected Node root;
+  protected NodeT root;
+  protected Stack randomPool;
   public Tree(){
       root=null;
+      randomPool=new Stack();
+      randomPool.pushAll();
+      //randomPool.shuffle();
   }
   public void insertNode(int key, TetrisBlock a) {
     root = insertNode(key, a, root);
   }
-  Node insertNode(int key, TetrisBlock a, Node node) {
+  NodeT insertNode(int key, TetrisBlock a, NodeT node) {
     if (node == null) {
-      node = new Node(key,a);
+      node = new NodeT(key,a);
     }
     else if (key <= node.index) {
       node.left = insertNode(key, a, node.left);
@@ -21,11 +25,11 @@ public class Tree {
     }
     return node;
   }
-  public Node searchNode(int key) {
+  public NodeT searchNode(int key) {
     return searchNode(key, root);
   }
 
-  private Node searchNode(int key, Node node) {
+  private NodeT searchNode(int key, NodeT node) {
     if (node == null) {
       return null;
     }
@@ -51,9 +55,11 @@ public class Tree {
       // a balanced binary search tree (optimal)
   }
   public TetrisBlock getRandomBlock(){
-      Random block = new Random();
-      int i = block.nextInt(7);
-      Node found = searchNode(i);
+      if(randomPool.isEmpty()){
+          randomPool.pushAll();
+      }
+      randomPool.shuffle();
+      NodeT found = searchNode(randomPool.pop());
       if(found!=null){
           return found.data;
       }
