@@ -1,5 +1,6 @@
 package tetris;
 import java.awt.Color;
+import static java.awt.Color.blue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -13,6 +14,7 @@ public class SwapArea extends JPanel {
     
     SwapBlocks sc;
     TetrisBlock block, block2;
+    int gridCellSize;
     public SwapArea(JPanel placeholder,SwapBlocks sc)
     {
         this.sc =sc;
@@ -20,6 +22,8 @@ public class SwapArea extends JPanel {
         this.setBounds(placeholder.getBounds());
         this.setBackground(placeholder.getBackground());
         this.setBorder(placeholder.getBorder());
+        gridCellSize = this.getBounds().width/8;
+
     
     }
         @Override
@@ -27,14 +31,12 @@ public class SwapArea extends JPanel {
         {
            super.paintComponent(g); 
             drawblock(g);
-            if(block!=null)
             repaint();
 
         }
-        
         private void drawblock(Graphics g){
-            
-            int gridCellSize = this.getBounds().width/10;
+                        
+           
             this.block = sc.returnblock();
             sc.insertBlock(block);
             this.block2 = sc.returnblock();
@@ -43,26 +45,28 @@ public class SwapArea extends JPanel {
             
             int h = block.getHeight();
             int w =  block.getWidth();
-            Color c = block.getColor();
+            
+            g.setColor(block.getColor());
             int [][] shape = block.getShape();
             for (int row = 0; row < h; row++) {
                 for (int col = 0; col <w; col++) {
-                   //Check if we have to draw the cell
                     if (shape[row][col] == 1) 
                     {
-                        g.fillRect(col*gridCellSize+20, row*gridCellSize+20, gridCellSize, gridCellSize);
+                        int x = (this.getBounds().width / 2 - block.getWidth() ) ;
+                        g.fillRect(col*gridCellSize+x, row*gridCellSize+20, gridCellSize, gridCellSize);
                     }
                 }
             }
+            g.setColor(block2.getColor());
+            
             int h2 = block2.getHeight();
             int w2 =  block2.getWidth();
             int [][] shape2 = block2.getShape();
             for (int row = 0; row < h2; row++) {
                 for (int col = 0; col <w2; col++) {
-                   //Check if we have to draw the cell
                     if (shape2[row][col] == 1) 
                     {
-                        g.fillRect(col*gridCellSize+20, row*gridCellSize+150, gridCellSize, gridCellSize);
+                      g.fillRect(col*gridCellSize+20, row*gridCellSize+150, gridCellSize, gridCellSize);
                     }
                 }
             }

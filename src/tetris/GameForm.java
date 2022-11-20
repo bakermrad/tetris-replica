@@ -100,7 +100,7 @@ public class GameForm extends JFrame {
         scoreDisplay.setText("Score: " + score);
     }
         public void updatelevel(int level){
-                levelDisplay.setText("Level: " + level);
+        levelDisplay.setText("Level: " + level);
 
     }
     

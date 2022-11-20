@@ -3,6 +3,7 @@ import java.util.*;
 import javax.swing.*;
 import tetrisblocks.*;
 import bst.Tree;
+import queue.*;
 
 /**
  *
@@ -10,9 +11,7 @@ import bst.Tree;
  */
 public class SwapBlocks{
         private Tree blocks;
-    
-        Queue<TetrisBlock> queue = new LinkedList<TetrisBlock>();
-        
+        queue blocksqueue = new queue();
 
     
     
@@ -21,22 +20,21 @@ public class SwapBlocks{
         blocks.insertAll();
         TetrisBlock block = blocks.getRandomBlock();
         TetrisBlock block2 = blocks.getRandomBlock();
-        queue.add(block);
-        queue.add(block2);
+        blocksqueue.insert(block);
+        blocksqueue.insert(block2);
     }
     public void insertBlock(){
         TetrisBlock block = blocks.getRandomBlock();
-        queue.add(block);
-        System.out.println(queue.size());
+        blocksqueue.insert(block);
     }
     
     public void insertBlock(TetrisBlock b){
-        queue.add(b);
+        blocksqueue.insert(b);
     }
     
     
     public TetrisBlock returnblock(){
-    return queue.remove();
+    return blocksqueue.remove();
     }
     
     
