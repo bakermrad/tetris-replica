@@ -30,6 +30,14 @@ public class queue {
         }
         b.next = new Node(a);
     }
+    public void removeduplicate(){
+        if(isEmpty()){
+                return;
+        }
+        if(first == first.next){
+        first.next.data = new IShape(); 
+        }
+    }
     public TetrisBlock remove(){
         if(isEmpty()){
             return new genZShape();
