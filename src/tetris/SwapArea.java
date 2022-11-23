@@ -35,8 +35,7 @@ public class SwapArea extends JPanel {
 
         }
         private void drawblock(Graphics g){
-                        
-           
+            try{
             this.block = sc.returnblock();
             sc.insertBlock(block);
             this.block2 = sc.returnblock();
@@ -69,7 +68,11 @@ public class SwapArea extends JPanel {
                       g.fillRect(col*gridCellSize+20, row*gridCellSize+150, gridCellSize, gridCellSize);
                     }
                 }
-            }
+            }   
+           }catch(NullPointerException e){
+               throw e;
+           }
+            
         }
 
     

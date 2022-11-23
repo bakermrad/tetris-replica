@@ -5,48 +5,70 @@
 package queue;
 
 import tetris.TetrisBlock;
+import tetrisblocks.*;
 
 /**
  *
  * @author baker mrad
  */
 public class queue {
-    Node top,bottom;
+    Node first;
     public queue(){
-        top = null;
+        first=null;
     }
-    
-       
     public boolean isEmpty(){
-        return top==null;
+        return (first==null);
     }
-    
-    public void insert(TetrisBlock t){
-        Node n = new Node(t);
+    public void insert(TetrisBlock a){
         if(isEmpty()){
-            top=n;
-        }else{
-            Node temp = top;
-            while(temp.next!= null){
-                temp = temp.next;
-                n.next = top;
-                top = n;
-            }
-            temp.next = n;
+            first = new Node(a);
+            return;
         }
+        Node b = first;
+        while(b.next!=null){
+            b=b.next;
+        }
+        b.next = new Node(a);
+    }
+    public TetrisBlock remove(){
+        if(isEmpty()){
+            return new genZShape();
+        }
+        Node a = first;
+        first=a.next;
+        return a.data;
     }
     
-    public TetrisBlock remove(){
-        if(!isEmpty()){
-            Node temp = top;
-            top = top.next;
-            return temp.data;
-        }
-        return null;
-    }
-    public TetrisBlock peek(){
-        return top.data;
-    }
+//    public void insert(TetrisBlock t){
+//        Node n = new Node(t);
+//        if(isEmpty()){
+//            bottom = n;
+//        }else{
+//            Node temp = bottom;
+//            while(temp.prev!= null){
+//                temp = temp.prev;
+//            }
+//            top = n;
+//            temp.prev= n;
+//        }
+//    }
+//    
+//    public TetrisBlock remove(){
+//        if(!isEmpty()){
+//            TetrisBlock toReturn = top.data;
+//            Node temp = bottom;
+//            while(temp.prev!=top){
+//                temp = temp.prev;
+//            }
+//            top = temp;
+//            return toReturn;
+//        }
+//        TetrisBlock a = new genZShape();
+//        return a;
+//    }
+    //public TetrisBlock peek(){
+      //  return top.data;
+    //}
     
     
     
