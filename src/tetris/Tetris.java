@@ -4,7 +4,7 @@ package tetris;
 import javax.swing.JOptionPane;
 
 public class Tetris {
-
+    public static Signup su;
     private static GameForm gf;
     private static StartupForm sf;
     private static LeaderboardForm lf;
@@ -13,6 +13,7 @@ public class Tetris {
     private static AudioPlayer audio = new AudioPlayer();
 
     public static void start(){
+        
         gf.setVisible(true);
         gf.startGame();
 
@@ -23,7 +24,8 @@ public class Tetris {
     }
     public static void showStartup()
     {
-    sf.setVisible(true);
+        su.setVisible(true);
+        sf.setVisible(true);
     }
     public static void gameOver(int score){
         playGameover();
@@ -48,12 +50,17 @@ public class Tetris {
             public void run() {
             
             gf = new GameForm();
+            su = new Signup();
             sf = new StartupForm();
             lf = new LeaderboardForm();
-            sf.setVisible(true);
+            su.setVisible(true);
+//            sf.setVisible(true);
             }
         });
 
     }
+
+    
+    
 
 }
