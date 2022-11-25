@@ -91,7 +91,7 @@ public class Signup extends javax.swing.JFrame {
         String password = JOptionPane.showInputDialog("password");
         boolean b = ll.checklogin(username, password);
         if (b == true) {
-            Tetris.start();
+            Tetris.showStartup();
         } else {
             this.setVisible(true);
             wrongpassword.setVisible(true);

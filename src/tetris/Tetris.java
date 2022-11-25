@@ -24,7 +24,7 @@ public class Tetris {
     }
     public static void showStartup()
     {
-        su.setVisible(true);
+//        su.setVisible(true);
         sf.setVisible(true);
     }
     public static void gameOver(int score){
