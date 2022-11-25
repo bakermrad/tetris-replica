@@ -1,4 +1,3 @@
- 
 package tetris;
 
 import java.awt.event.ActionEvent;
@@ -15,96 +14,119 @@ import javax.swing.KeyStroke;
 public class GameForm extends JFrame {
 
     private GameArea ga;
-    private GameThread gt;         
-    public SwapBlocks sc = new SwapBlocks() ;
+    private GameThread gt;
+    public SwapBlocks sc = new SwapBlocks();
     private SwapArea sa;
 
-    
-    
     public GameForm() {
         initComponents();
-        ga =new GameArea(gameAreaPlaceholder, 10, sc);
-        sa =new SwapArea(SwapBlocksPlaceHolder , sc);
-        this.add (ga);
+        ga = new GameArea(gameAreaPlaceholder, 10, sc);
+        sa = new SwapArea(SwapBlocksPlaceHolder, sc);
+        this.add(ga);
         this.add(sa);
         initControls();
-        
-       
+
     }
 
-    public void startGame(){
-       ga.initBackgroundArray();
-       
-       gt = new GameThread(ga,sa, this);
-       gt.start();
+    public void startGame() {
+        ga.initBackgroundArray();
+
+        gt = new GameThread(ga, sa, this);
+        gt.start();
     }
-    
-    public void initControls()
-    {
+
+    public void initControls() {
         InputMap im = this.getRootPane().getInputMap();
         ActionMap am = this.getRootPane().getActionMap();
-        
+
         im.put(KeyStroke.getKeyStroke("RIGHT"), "right");
         im.put(KeyStroke.getKeyStroke("LEFT"), "left");
         im.put(KeyStroke.getKeyStroke("UP"), "up");
         im.put(KeyStroke.getKeyStroke("DOWN"), "down");
+        im.put(KeyStroke.getKeyStroke("A"), "a");
+        im.put(KeyStroke.getKeyStroke("D"), "d");
+        im.put(KeyStroke.getKeyStroke("W"), "w");
+        im.put(KeyStroke.getKeyStroke("S"), "s");
+
         im.put(KeyStroke.getKeyStroke("C"), "c");
 
-        
-        am.put("c", new AbstractAction()
-        {
+        am.put("c", new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 ga.swapBlock();
             }
         });
-                am.put("right", new AbstractAction()
-        {
+        am.put("right", new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 ga.moveBlockRight();
             }
         });
 
-        am.put("left",  new AbstractAction()
-        {
+        am.put("left", new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e){
-                  ga.moveBlockLeft();
+            public void actionPerformed(ActionEvent e) {
+                ga.moveBlockLeft();
 
             }
         });
 
-        am.put("up",  new AbstractAction()
-        {
+        am.put("up", new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e){
-                                ga.rotateBlock();
+            public void actionPerformed(ActionEvent e) {
+                ga.rotateBlock();
 
             }
         });
-        
-        am.put("down",  new AbstractAction()
-        {
+
+        am.put("down", new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 ga.dropBlock();
             }
         });
 
-        
+        am.put("d", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ga.moveBlockRight();
+            }
+        });
+
+        am.put("a", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ga.moveBlockLeft();
+
+            }
+        });
+
+        am.put("w", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ga.rotateBlock();
+
+            }
+        });
+
+        am.put("s", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ga.dropBlock();
+            }
+        });
+
     }
 
-
-    public void updateScore(int score){
+    public void updateScore(int score) {
         scoreDisplay.setText("Score: " + score);
     }
-        public void updatelevel(int level){
+
+    public void updatelevel(int level) {
         levelDisplay.setText("Level: " + level);
 
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -207,7 +229,7 @@ public class GameForm extends JFrame {
         gt.interrupt();
         this.setVisible(false);
         Tetris.showStartup();
-        
+
     }//GEN-LAST:event_btnMainMenuActionPerformed
 
     public static void main(String args[]) {

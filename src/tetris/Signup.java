@@ -82,6 +82,7 @@ public class Signup extends javax.swing.JFrame {
         this.setVisible(false);
         try {
             read();
+            ll.display();
         } catch (IOException ex) {
             Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
@@ -89,6 +90,7 @@ public class Signup extends javax.swing.JFrame {
         }
         String username = JOptionPane.showInputDialog("username");
         String password = JOptionPane.showInputDialog("password");
+        
         boolean b = ll.checklogin(username, password);
         if (b == true) {
             Tetris.showStartup();
@@ -105,11 +107,24 @@ public class Signup extends javax.swing.JFrame {
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
         String username = JOptionPane.showInputDialog("username");
         String password = JOptionPane.showInputDialog("password");
+        if(username == null || password == null){
+            return;
+        }
+        else{
+            try { 
+                read();
+            } catch (IOException ex) {
+                Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, null, ex);
+            }
         ll.insert(username, password);
+        ll.display();
         try {
             write(ll);
         } catch (IOException ex) {
             Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }//GEN-LAST:event_signupActionPerformed
 

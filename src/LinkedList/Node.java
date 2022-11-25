@@ -9,6 +9,7 @@ import java.io.Serializable;
 public class Node implements Serializable {
 
     private String UserName, Password;
+
     Node next;
 
     public Node(String UserName, String Password) {
@@ -26,6 +27,6 @@ public class Node implements Serializable {
     }
     public void setPassword(String Password) {
         this.Password = Password;
-    }
 
+    }
 }
