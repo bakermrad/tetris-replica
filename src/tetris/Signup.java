@@ -31,6 +31,7 @@ public class Signup extends javax.swing.JFrame {
         wrongpassword = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SignUp/Login");
         setResizable(false);
 
         login.setText("Login");

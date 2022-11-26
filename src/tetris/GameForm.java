@@ -136,8 +136,10 @@ public class GameForm extends JFrame {
         levelDisplay = new javax.swing.JLabel();
         btnMainMenu = new javax.swing.JButton();
         SwapBlocksPlaceHolder = new javax.swing.JPanel();
+        next = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tetris");
         setResizable(false);
 
         gameAreaPlaceholder.setBackground(new java.awt.Color(153, 153, 153));
@@ -169,15 +171,23 @@ public class GameForm extends JFrame {
         SwapBlocksPlaceHolder.setBackground(new java.awt.Color(255, 255, 255));
         SwapBlocksPlaceHolder.setForeground(new java.awt.Color(255, 255, 255));
 
+        next.setText("nextblock");
+
         javax.swing.GroupLayout SwapBlocksPlaceHolderLayout = new javax.swing.GroupLayout(SwapBlocksPlaceHolder);
         SwapBlocksPlaceHolder.setLayout(SwapBlocksPlaceHolderLayout);
         SwapBlocksPlaceHolderLayout.setHorizontalGroup(
             SwapBlocksPlaceHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 135, Short.MAX_VALUE)
+            .addGroup(SwapBlocksPlaceHolderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(next)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         SwapBlocksPlaceHolderLayout.setVerticalGroup(
             SwapBlocksPlaceHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 233, Short.MAX_VALUE)
+            .addGroup(SwapBlocksPlaceHolderLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(next)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -207,17 +217,18 @@ public class GameForm extends JFrame {
                 .addComponent(gameAreaPlaceholder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(scoreDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(levelDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(scoreDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(levelDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(SwapBlocksPlaceHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SwapBlocksPlaceHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
         );
 
         pack();
@@ -270,6 +281,7 @@ public class GameForm extends JFrame {
     private javax.swing.JButton btnMainMenu;
     private javax.swing.JPanel gameAreaPlaceholder;
     private javax.swing.JLabel levelDisplay;
+    private javax.swing.JLabel next;
     private javax.swing.JLabel scoreDisplay;
     // End of variables declaration//GEN-END:variables
 }

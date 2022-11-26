@@ -51,8 +51,8 @@ public class SwapArea extends JPanel {
                 for (int col = 0; col <w; col++) {
                     if (shape[row][col] == 1) 
                     {
-                        int x = (this.getBounds().width / 2 - block.getWidth() ) ;
-                        g.fillRect(col*gridCellSize+x, row*gridCellSize+20, gridCellSize, gridCellSize);
+                        
+                        g.fillRect(col*gridCellSize+20, row*gridCellSize+20, gridCellSize, gridCellSize);
                     }
                 }
             }
