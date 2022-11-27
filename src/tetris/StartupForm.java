@@ -37,6 +37,7 @@ public class StartupForm extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnStart.setBackground(new java.awt.Color(0, 102, 102));
         btnStart.setForeground(new java.awt.Color(51, 51, 51));
         btnStart.setText("➡ Sŧɑɍŧ㊌Ɠɑmє");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
@@ -46,6 +47,7 @@ public class StartupForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 179, 51));
 
+        btnLeaderboard.setBackground(new java.awt.Color(255, 204, 0));
         btnLeaderboard.setForeground(new java.awt.Color(51, 51, 51));
         btnLeaderboard.setText("ʘ͜ʖʘ LeαĐerƁσαrĐ");
         btnLeaderboard.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +57,7 @@ public class StartupForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 146, 179, 48));
 
+        btnQuit.setBackground(new java.awt.Color(153, 0, 153));
         btnQuit.setForeground(new java.awt.Color(51, 51, 51));
         btnQuit.setText("╰‿╯ Quit");
         btnQuit.addActionListener(new java.awt.event.ActionListener() {
@@ -64,14 +67,17 @@ public class StartupForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnQuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 212, 179, 44));
 
-        jLabel1.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Calibri Light", 0, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 0));
-        jLabel1.setText("「Ŧєтяɪѕ」");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, 40));
+        jLabel1.setText("「Tᴇᴛʀᴉs」");
+        jLabel1.setToolTipText("");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 170, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\baker mrad\\Documents\\NetBeansProjects\\TetrisG\\bg.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tetris/bg.png"))); // NOI18N
         jLabel2.setToolTipText("");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 440, 290));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 300));
 
         pack();
         setLocationRelativeTo(null);
