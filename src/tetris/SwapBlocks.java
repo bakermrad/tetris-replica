@@ -17,18 +17,19 @@ public class SwapBlocks {
         TetrisBlock block2 = blocks.getRandomBlock();
         blocksqueue.insert(block);
         blocksqueue.insert(block2);
-        blocksqueue.removeduplicate();
     }
 
     public TetrisBlock insertBlockSwap() {
         TetrisBlock block = blocks.getRandomBlock();
         blocksqueue.insert(block);
+        blocksqueue.removeduplicate();
         return block;
     }
 
     public void insertBlock() {
         TetrisBlock block = blocks.getRandomBlock();
         blocksqueue.insert(block);
+        blocksqueue.removeduplicate();
     }
 
     public void insertBlock(TetrisBlock b) {

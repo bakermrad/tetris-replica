@@ -54,10 +54,12 @@ public class Tree {
       // a balanced binary search tree (optimal)
   }
   public TetrisBlock getRandomBlock(){
+      if(randomPool.isEmpty()){
+        randomPool.pushAll();
+      }
       randomPool.shuffle();
       int l = randomPool.pop();
       NodeT found = searchNode(l);
-      randomPool.push(l);
       return found.data;
     }
 }

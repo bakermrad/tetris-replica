@@ -42,12 +42,12 @@ public class Stack {
         }
     }
     public void shuffle(){
-        //a method that will somewhat randomize the order of numbers in the stack
-        if(!isEmpty()){
+    //a method that will somewhat randomize the order of numbers in the stack
+        if(!isEmpty() && getSize()>2){
             Stack recover = new Stack();
             Random rng = new Random();
             int hold = pop();
-            int r = rng.nextInt(1,6);
+            int r = rng.nextInt(1,size);
             for(int j = 0; j < r; j++){
                 recover.push(pop());
             }
