@@ -37,6 +37,7 @@ public class StartupForm extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnStart.setBackground(new java.awt.Color(0, 102, 102));
         btnStart.setForeground(new java.awt.Color(51, 51, 51));
         btnStart.setText("➡ Sŧɑɍŧ㊌Ɠɑmє");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
@@ -46,6 +47,7 @@ public class StartupForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 179, 51));
 
+        btnLeaderboard.setBackground(new java.awt.Color(255, 204, 0));
         btnLeaderboard.setForeground(new java.awt.Color(51, 51, 51));
         btnLeaderboard.setText("ʘ͜ʖʘ LeαĐerƁσαrĐ");
         btnLeaderboard.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +57,7 @@ public class StartupForm extends javax.swing.JFrame {
         });
         getContentPane().add(btnLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 146, 179, 48));
 
+        btnQuit.setBackground(new java.awt.Color(153, 0, 153));
         btnQuit.setForeground(new java.awt.Color(51, 51, 51));
         btnQuit.setText("╰‿╯ Quit");
         btnQuit.addActionListener(new java.awt.event.ActionListener() {
