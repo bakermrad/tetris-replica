@@ -17,6 +17,7 @@ public class SwapBlocks {
         TetrisBlock block2 = blocks.getRandomBlock();
         blocksqueue.insert(block);
         blocksqueue.insert(block2);
+        blocksqueue.removeduplicate();
     }
 
     public TetrisBlock insertBlockSwap() {
@@ -34,6 +35,7 @@ public class SwapBlocks {
 
     public void insertBlock(TetrisBlock b) {
         blocksqueue.insert(b);
+        blocksqueue.removeduplicate();
     }
 
     public TetrisBlock returnblock() {

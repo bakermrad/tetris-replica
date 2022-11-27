@@ -22,7 +22,7 @@ public class queue {
     }
     public void removeduplicate(){
         if(isEmpty()){
-                return;
+            return;
         }
         if(first == first.next){
         first.next.data = new IShape(); 
