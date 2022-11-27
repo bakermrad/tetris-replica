@@ -1,19 +1,17 @@
  package tetris;
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.Random;
 import javax.swing.JPanel;
-import tetrisblocks.*;
 import bst.Tree;
 public class GameArea extends JPanel {
     
-        private int gridRows;
-        private int gridColumns;
-        private int gridCellSize;
+        private final int gridRows;
+        private final int gridColumns;
+        private final int gridCellSize;
         private Color[][] background;
         TetrisBlock block ;
-        private Tree blocks ;
-        private SwapBlocks sc ;
+        private final Tree blocks ;
+        private final SwapBlocks sc ;
         
         public GameArea(JPanel placeholder , int columns,SwapBlocks sc)
     {

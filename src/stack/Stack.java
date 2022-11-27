@@ -37,7 +37,7 @@ public class Stack {
         return -1;
     }
     public void pushAll(){
-        for(int i=0;i<8;i++){
+        for(int i=0;i<7;i++){
             push(i);
         }
     }

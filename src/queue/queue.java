@@ -1,16 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package queue;
-
 import tetris.TetrisBlock;
 import tetrisblocks.*;
-
-/**
- *
- * @author baker mrad
- */
 public class queue {
     Node first;
     public queue(){

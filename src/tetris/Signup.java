@@ -7,15 +7,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import static java.lang.System.in;
-import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Signup extends javax.swing.JFrame {
+
     userLinkedList ll = new userLinkedList();
-    
+
     public Signup() {
         initComponents();
         wrongpassword.setVisible(false);
@@ -49,7 +48,7 @@ public class Signup extends javax.swing.JFrame {
         });
 
         wrongpassword.setForeground(new java.awt.Color(255, 51, 51));
-        wrongpassword.setText("wrong password or email");
+        wrongpassword.setText("Wrong Login Credentials");
         wrongpassword.setFocusable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -59,10 +58,11 @@ public class Signup extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(136, 136, 136)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(signup, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(login, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                        .addComponent(signup, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
                     .addComponent(wrongpassword))
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +91,7 @@ public class Signup extends javax.swing.JFrame {
         }
         String username = JOptionPane.showInputDialog("username");
         String password = JOptionPane.showInputDialog("password");
-        
+
         boolean b = ll.checklogin(username, password);
         if (b == true) {
             Tetris.showStartup();
@@ -101,31 +101,28 @@ public class Signup extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_loginActionPerformed
-    
 
-    
-    
+
     private void signupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signupActionPerformed
         String username = JOptionPane.showInputDialog("username");
         String password = JOptionPane.showInputDialog("password");
-        if(username == null || password == null){
+        if (username == null || password == null) {
             return;
-        }
-        else{
-            try { 
+        } else {
+            try {
                 read();
             } catch (IOException ex) {
                 Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, null, ex);
             }
-        ll.insert(username, password);
-        ll.display();
-        try {
-            write(ll);
-        } catch (IOException ex) {
-            Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            ll.insert(username, password);
+            ll.display();
+            try {
+                write(ll);
+            } catch (IOException ex) {
+                Logger.getLogger(Signup.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_signupActionPerformed
 
@@ -136,26 +133,24 @@ public class Signup extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void write(userLinkedList myList) throws FileNotFoundException, IOException{
-    FileOutputStream fileout = new FileOutputStream("tmp.ser");
-    ObjectOutputStream out = new ObjectOutputStream(fileout);
-    out.writeObject(myList);
-    out.close();
-    fileout.close();
+
+    public void write(userLinkedList myList) throws FileNotFoundException, IOException {
+        FileOutputStream fileout = new FileOutputStream("tmp.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileout);
+        out.writeObject(myList);
+        out.close();
+        fileout.close();
         System.out.println("object info saved");
     }
-    
-    public void read() throws FileNotFoundException, IOException, ClassNotFoundException{
+
+    public void read() throws FileNotFoundException, IOException, ClassNotFoundException {
         FileInputStream filein = new FileInputStream("tmp.ser");
         ObjectInputStream in = new ObjectInputStream(filein);
         ll = (userLinkedList) in.readObject();
         in.close();
         filein.close();
-        
+
     }
-    
-    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

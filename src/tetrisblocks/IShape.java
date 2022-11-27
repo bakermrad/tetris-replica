@@ -1,13 +1,6 @@
-
 package tetrisblocks;
-
 import static java.awt.Color.orange;
 import tetris.TetrisBlock;
-
-/**
- *
- * @author baker
- */
 public class IShape  extends TetrisBlock {
     
     public IShape()

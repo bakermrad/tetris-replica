@@ -2,6 +2,7 @@ package tetris;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -19,65 +20,58 @@ import javax.swing.table.TableRowSorter;
 public class LeaderboardForm extends javax.swing.JFrame {
 
     private DefaultTableModel tm;
-    
-    private String LeaderboardFile = "leaderboard";
-    
-    private TableRowSorter<TableModel> sorter;   
+
+    private final String LeaderboardFile = "leaderboard";
+
+    private TableRowSorter<TableModel> sorter;
+
     public LeaderboardForm() {
-        
+
         initComponents();
         initTableData();
-        
+
         initTableSorter();
     }
-    private void initTableData()
-    {
+
+    private void initTableData() {
         Vector ci = new Vector();
         ci.add("player");
         ci.add("Score");
-try{
-        tm = (DefaultTableModel) leaderboard.getModel();
-        FileInputStream fs = new FileInputStream(LeaderboardFile);
-        ObjectInputStream os = new ObjectInputStream(fs);
-        
-        tm.setDataVector((Vector<Vector>)os.readObject(), ci);
-        os.close();
-        fs.close();}
-catch(Exception e){}
+        try {
+            tm = (DefaultTableModel) leaderboard.getModel();
+            FileInputStream fs = new FileInputStream(LeaderboardFile);
+            ObjectInputStream os = new ObjectInputStream(fs);
+
+            tm.setDataVector((Vector<Vector>) os.readObject(), ci);
+            os.close();
+            fs.close();
+        } catch (Exception e) {
+        }
     }
-    
-    private void initTableSorter()
-    {
+
+    private void initTableSorter() {
         sorter = new TableRowSorter<>(tm);
         leaderboard.setRowSorter(sorter);
-        
-        
+
         ArrayList<SortKey> keys = new ArrayList<>();
-        keys.add(new SortKey(1, SortOrder.DESCENDING)  );
-        
-        
+        keys.add(new SortKey(1, SortOrder.DESCENDING));
+
         sorter.setSortKeys(keys);
     }
-    
-    
-    
-    
-    
-    public void saveLeaderData()
-    {
-        try{
-        FileOutputStream fs= new FileOutputStream(LeaderboardFile);
-        ObjectOutputStream OS = new ObjectOutputStream(fs);
-        
-        OS.writeObject(tm.getDataVector());
-        
-        OS.close();
-        fs.close();
-        }
-        catch(Exception e){}
-    tm.getDataVector();
+
+    public void saveLeaderData() {
+        try {
+            FileOutputStream fs = new FileOutputStream(LeaderboardFile);
+            ObjectOutputStream OS = new ObjectOutputStream(fs);
+
+            OS.writeObject(tm.getDataVector());
+
+            OS.close();
+            fs.close();
+        } catch (IOException e) {}
+        tm.getDataVector();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -154,21 +148,20 @@ catch(Exception e){}
         // TODO add your handling code here:       
         this.setVisible(false);
         Tetris.showStartup();
-        
-    }//GEN-LAST:event_btnMainMenuActionPerformed
-    public void addPlayer(String PlayerName, int score){
-        
-        tm.addRow( new Object[] {PlayerName, score});
-        
-        
-                sorter.sort();
 
-             saveLeaderData();
+    }//GEN-LAST:event_btnMainMenuActionPerformed
+    public void addPlayer(String PlayerName, int score) {
+
+        tm.addRow(new Object[]{PlayerName, score});
+
+        sorter.sort();
+
+        saveLeaderData();
 
         this.setVisible(true);
-        
+
     }
-   
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -195,10 +188,8 @@ catch(Exception e){}
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LeaderboardForm().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new LeaderboardForm().setVisible(true);
         });
     }
 

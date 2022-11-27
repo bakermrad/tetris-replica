@@ -15,8 +15,8 @@ public class GameForm extends JFrame {
 
     private GameArea ga;
     private GameThread gt;
-    public SwapBlocks sc = new SwapBlocks();
-    private SwapArea sa;
+    public final SwapBlocks sc = new SwapBlocks();
+    private final SwapArea sa;
 
     public GameForm() {
         initComponents();
@@ -35,7 +35,7 @@ public class GameForm extends JFrame {
         gt.start();
     }
 
-    public void initControls() {
+    private void initControls() {
         InputMap im = this.getRootPane().getInputMap();
         ActionMap am = this.getRootPane().getActionMap();
 
@@ -269,10 +269,8 @@ public class GameForm extends JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new GameForm().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new GameForm().setVisible(true);
         });
     }
 

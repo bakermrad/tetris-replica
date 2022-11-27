@@ -49,7 +49,6 @@ public class Tree {
       insertNode(2,new IShape());
       insertNode(4,new OShape());
       insertNode(0,new JShape());
-      insertNode(7,new JShape());
       randomPool.pushAll();
       //inserting shapes in a specific order to make
       // a balanced binary search tree (optimal)

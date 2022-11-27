@@ -28,11 +28,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="login" min="-2" pref="129" max="-2" attributes="0"/>
-                  <Component id="signup" min="-2" pref="129" max="-2" attributes="0"/>
-                  <Component id="wrongpassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="login" pref="129" max="32767" attributes="0"/>
+                      <Component id="signup" pref="129" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="wrongpassword" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="131" max="32767" attributes="0"/>
+              <EmptySpace pref="135" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,7 +74,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="33" green="33" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="wrong password or email"/>
+        <Property name="text" type="java.lang.String" value="Wrong Login Credentials"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>

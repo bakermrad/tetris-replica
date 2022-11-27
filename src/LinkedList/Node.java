@@ -1,11 +1,5 @@
 package LinkedList;
-
 import java.io.Serializable;
-
-/**
- *
- * @author baker mrad
- */
 public class Node implements Serializable {
 
     private String UserName, Password;

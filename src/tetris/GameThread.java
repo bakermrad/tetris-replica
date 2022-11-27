@@ -1,23 +1,19 @@
 
 package tetris;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author baker
  */
 public class GameThread extends Thread{
     
-    private GameArea ga;
-    private GameForm gf;
-    private SwapArea sa;
+    private final GameArea ga;
+    private final GameForm gf;
+    private final SwapArea sa;
     private int score;
     private int level = 1;
-    private int scorePerLevel = 1;
+    private final int scorePerLevel = 1;
     private int pause = 1000;
-    private int speedupPerLevel = 100;
+    private final int speedupPerLevel = 100;
     
     
     
