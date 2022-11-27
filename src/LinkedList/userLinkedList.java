@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-import net.javaguides.examples.security.AESEncryptionDecryption;
 
 public class userLinkedList implements Serializable {
 

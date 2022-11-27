@@ -1,4 +1,6 @@
-package net.javaguides.examples.security;
+package LinkedList;
+
+
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
