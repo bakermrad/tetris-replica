@@ -1,12 +1,6 @@
 package tetris;
-
 import bst.Tree;
 import queue.*;
-
-/**
- *
- * @author baker
- */
 public class SwapBlocks {
 
     private final Tree blocks = new Tree();

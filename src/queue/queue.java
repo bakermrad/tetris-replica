@@ -25,12 +25,12 @@ public class queue {
             return;
         }
         if(first == first.next){
-        first.next.data = new IShape(); 
+        first.next.data = new PlusShape(); 
         }
     }
     public TetrisBlock remove(){
         if(isEmpty()){
-            return new genZShape();
+            return new PlusShape();
         }
         Node a = first;
         first=a.next;

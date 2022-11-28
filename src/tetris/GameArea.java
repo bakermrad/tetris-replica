@@ -269,9 +269,7 @@ public class GameArea extends JPanel {
         }
                 private void shiftDown(int r){
                     for (int row = r; row > 0; row--) {
-                        for (int col = 0; col < gridColumns; col++) {
-                            background[row][col] = background [row-1][col];
-                        }
+                        System.arraycopy(background [row-1], 0, background[row], 0, gridColumns);
                     }
                 }
 

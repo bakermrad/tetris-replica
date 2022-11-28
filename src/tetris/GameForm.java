@@ -13,7 +13,7 @@ import javax.swing.KeyStroke;
  */
 public class GameForm extends JFrame {
 
-    private GameArea ga;
+    private final GameArea ga;
     private GameThread gt;
     public final SwapBlocks sc = new SwapBlocks();
     private final SwapArea sa;
@@ -136,7 +136,7 @@ public class GameForm extends JFrame {
         levelDisplay = new javax.swing.JLabel();
         btnMainMenu = new javax.swing.JButton();
         SwapBlocksPlaceHolder = new javax.swing.JPanel();
-        next = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tetris");
@@ -156,9 +156,9 @@ public class GameForm extends JFrame {
             .addGap(0, 298, Short.MAX_VALUE)
         );
 
-        scoreDisplay.setText("score: 0");
+        scoreDisplay.setText("Score: 0");
 
-        levelDisplay.setText("level:0");
+        levelDisplay.setText("Level: 0");
 
         btnMainMenu.setText("Main Menu");
         btnMainMenu.setFocusable(false);
@@ -171,24 +171,25 @@ public class GameForm extends JFrame {
         SwapBlocksPlaceHolder.setBackground(new java.awt.Color(255, 255, 255));
         SwapBlocksPlaceHolder.setForeground(new java.awt.Color(255, 255, 255));
 
-        next.setText("nextblock");
-
         javax.swing.GroupLayout SwapBlocksPlaceHolderLayout = new javax.swing.GroupLayout(SwapBlocksPlaceHolder);
         SwapBlocksPlaceHolder.setLayout(SwapBlocksPlaceHolderLayout);
         SwapBlocksPlaceHolderLayout.setHorizontalGroup(
             SwapBlocksPlaceHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SwapBlocksPlaceHolderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(next)
-                .addContainerGap(77, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         SwapBlocksPlaceHolderLayout.setVerticalGroup(
             SwapBlocksPlaceHolderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SwapBlocksPlaceHolderLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(next)
-                .addContainerGap(232, Short.MAX_VALUE))
+            .addGap(0, 257, Short.MAX_VALUE)
         );
+
+        next.setText("Next Blocks");
+
+        hint.setText("'C' To Swap");
+        hint.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                hintComponentShown(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,29 +207,51 @@ public class GameForm extends JFrame {
                         .addComponent(btnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(gameAreaPlaceholder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SwapBlocksPlaceHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                        .addComponent(next)
+                        .addGap(40, 40, 40))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(hint)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SwapBlocksPlaceHolder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 19, Short.MAX_VALUE)
-                .addComponent(gameAreaPlaceholder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(scoreDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(levelDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(SwapBlocksPlaceHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(56, 56, 56)
+                .addComponent(scoreDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(levelDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(next)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SwapBlocksPlaceHolder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(hint))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(gameAreaPlaceholder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -242,6 +265,10 @@ public class GameForm extends JFrame {
         Tetris.showStartup();
 
     }//GEN-LAST:event_btnMainMenuActionPerformed
+
+    private void hintComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_hintComponentShown
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hintComponentShown
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -278,8 +305,10 @@ public class GameForm extends JFrame {
     private javax.swing.JPanel SwapBlocksPlaceHolder;
     private javax.swing.JButton btnMainMenu;
     private javax.swing.JPanel gameAreaPlaceholder;
+    private final javax.swing.JLabel hint = new javax.swing.JLabel();
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel levelDisplay;
-    private javax.swing.JLabel next;
+    private final javax.swing.JLabel next = new javax.swing.JLabel();
     private javax.swing.JLabel scoreDisplay;
     // End of variables declaration//GEN-END:variables
 }
